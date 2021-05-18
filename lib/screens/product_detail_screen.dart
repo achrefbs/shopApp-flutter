@@ -2,8 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:shopapp/providers/product.dart';
 
 class ProductDetailScreen extends StatelessWidget {
-  // final Product product;
-  // ProductDetailScreen(this.product);
+
   static const routeName = '/product_detail';
   @override
   Widget build(BuildContext context) {
