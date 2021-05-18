@@ -22,6 +22,19 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
       appBar: AppBar(
         title: Text('shop'),
         actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_cart),
+            onPressed: () {
+              Navigator.of(context).pushNamed(CartScreen.routeName);
+            },
+          ),
+          Consumer<Cart>(
+            builder: (ctx, cart, _) => Chip(
+              label: Text(
+                cart.itemCount.toString(),
+              ),
+            ),
+          ),
           PopupMenuButton(
             onSelected: (selectedValue) {
               setState(() {
@@ -46,15 +59,6 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
               ),
             ],
           ),
-          IconButton(
-            icon: Icon(Icons.shopping_cart),
-            onPressed: () {
-              Navigator.of(context).pushNamed(CartScreen.routeName);
-            },
-          ),
-          Consumer<Cart>(
-            builder: (ctx, cart, _) => Text(cart.itemCount.toString()),
-          )
         ],
       ),
       body: ProductsGrid(_showOnlyFavorites),
