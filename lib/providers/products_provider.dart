@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-import 'package:shopapp/models/product.dart';
+import 'package:shopapp/providers/product.dart';
 
 class Products with ChangeNotifier {
   List<Product> _items = [
@@ -24,5 +24,9 @@ class Products with ChangeNotifier {
   List<Product> get items {
     // return a copy to _items
     return [..._items];
+  }
+
+  Product findById(String id) {
+    return _items.firstWhere((element) => element.id == id);
   }
 }
